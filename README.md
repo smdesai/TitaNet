@@ -88,10 +88,10 @@ first use.
 
 ## License
 
-The code is MIT ([LICENSE](LICENSE)). The model is NVIDIA's, under CC-BY-4.0; this repository contains none of its
-weights (the scripts download them), only the checkpoint's mel filterbank and window for the app's front end.
-`apps/TitaNetStudio/Sources/Engine/ModelDownloader.swift` is adapted from Apple's coreai-models sample under
-BSD-3-Clause.
+The code is MIT ([LICENSE](LICENSE)); [NOTICE](NOTICE) lists what it does not cover. The model is NVIDIA's,
+under CC-BY-4.0; this repository contains none of its weights (the scripts download them), only the checkpoint's mel
+filterbank and window for the app's front end. `apps/TitaNetStudio/Sources/Engine/ModelDownloader.swift` is adapted
+from Apple's coreai-models sample under BSD-3-Clause.
 
 ```bibtex
 @inproceedings{koluguri2022titanet,

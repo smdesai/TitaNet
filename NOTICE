@@ -1,0 +1,10 @@
+TitaNet for Core AI and Core ML
+
+The code in this repository is under the MIT license (LICENSE). The following are not covered by it:
+
+* The TitaNet-Large model (nvidia/speakerverification_en_titanet_large) is NVIDIA's, under CC-BY-4.0
+  (https://creativecommons.org/licenses/by/4.0/). This repository contains none of its weights; the scripts download
+  them. The mel filterbank and window in apps/TitaNetStudio/Resources (mel_fb.f32, mel_window.f32) are the
+  checkpoint's own preprocessor buffers, also CC-BY-4.0, NVIDIA.
+* apps/TitaNetStudio/Sources/Engine/ModelDownloader.swift is adapted from Apple's coreai-models sample
+  (Copyright 2026 Apple Inc.) under the BSD-3-Clause license; its notice, conditions and disclaimer apply to that file.

@@ -1,0 +1,1 @@
+{"tag":"mem_c_fp32_gpu","bundle":"bundles/c_scan_f512_fp32","compute":"cpu_and_gpu","frames":[408,828,2052,6472],"iters":3}

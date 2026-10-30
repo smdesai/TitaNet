@@ -1,0 +1,46 @@
+# LeanGate: headless device gate that measures the iOS phys_footprint of a titanet-lean Core AI bundle. Reads
+# Library/Application Support/LeanAssets/gate.json, loads bundles/<name>/titanet.aimodel, runs the host algorithm of
+# tnl/runtime.py over synthetic mel at each requested utterance length, and writes Documents/titanet_gate/status.json.
+# Modelled on the TitaNetGate app of the earlier, bucketed TitaNet Core AI port. CoreAI is a system framework, so there is no package dependency.
+# Signing: export DEVELOPMENT_TEAM=<your team ID> and BUNDLE_ID_PREFIX=<e.g. com.yourname> before generating.
+# Build: apps/LeanGate/device.sh install <UDID>.
+name: LeanGate
+options:
+  bundleIdPrefix: ${BUNDLE_ID_PREFIX}
+  createIntermediateGroups: true
+schemes:
+  LeanGate:
+    build:
+      targets:
+        LeanGate: all
+    run:
+      config: Release
+targets:
+  LeanGate:
+    type: application
+    supportedDestinations: [iOS]
+    deploymentTarget:
+      iOS: "27.0"
+    sources:
+      - path: Sources
+    entitlements:
+      path: LeanGate.entitlements
+      properties:
+        com.apple.developer.kernel.increased-memory-limit: true
+    settings:
+      base:
+        PRODUCT_BUNDLE_IDENTIFIER: ${BUNDLE_ID_PREFIX}.leangate
+        DEVELOPMENT_TEAM: ${DEVELOPMENT_TEAM}
+        CODE_SIGN_STYLE: Automatic
+        CODE_SIGN_ENTITLEMENTS: LeanGate.entitlements
+        GENERATE_INFOPLIST_FILE: YES
+        INFOPLIST_KEY_UILaunchScreen_Generation: YES
+        INFOPLIST_KEY_CFBundleDisplayName: LeanGate
+        INFOPLIST_KEY_ITSAppUsesNonExemptEncryption: NO
+        INFOPLIST_KEY_UIFileSharingEnabled: YES
+        TARGETED_DEVICE_FAMILY: "1"
+        SWIFT_VERSION: "6.0"
+        SWIFT_APPROACHABLE_CONCURRENCY: YES
+        MARKETING_VERSION: "1.0"
+        CURRENT_PROJECT_VERSION: "1"
+        OTHER_LDFLAGS: -framework CoreAI

@@ -1,0 +1,1 @@
+{"tag":"acc_c_fp32_gpu","bundle":"bundles/c_scan_f512_fp32","compute":"cpu_and_gpu","manifest":"audio/manifest.jsonl"}
